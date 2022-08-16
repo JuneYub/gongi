@@ -1,0 +1,145 @@
+
+a:link {
+  color: black; text-decoration: none;
+}
+
+a:visited{
+  color: black; text-decoration: none;
+}
+
+
+body {
+
+  font-family: 'Nanum Gothic', sans-serif;
+  
+  /*font-family: 'Noto Sans KR', sans-serif;*/
+  
+}
+
+header {
+
+}
+
+header .inner {
+  width: 1100px;
+  height: 100px;
+  margin: 0 auto;
+
+  position: relative;
+}
+
+header .inner .logo {
+
+  position: absolute;
+  height: 50px;
+  width: 130px;
+  font-size: 45px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 50px;
+  margin: auto 0;
+}
+
+header .sub-menu {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+header .sub-menu ul.menu {
+  display: flex;
+  position: absolute;
+  left: 800px;
+  bottom: 27px;
+}
+
+header .sub-menu ul.menu li {
+
+}
+
+
+header .sub-menu ul.menu li a {
+
+  font-size: 18px;
+  padding: 11px 11px;
+  display: block;
+}
+
+header .sub-menu ul.menu li a:hover {
+  color: #2E75B6;
+}
+
+body .search {
+  /*background-color: red;*/
+  position: relative;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.search .specify_address {
+  position: relative;
+}
+
+.search .pl {
+  position: relative;
+  width: 200px;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 12px 13px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 3px;
+}
+
+.search .pl:focus {
+  border: 1px solid #9B51E0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  outline: 3px solid #F8e4FF;
+  border-radius: 10px;
+}
+
+.search .address {
+  color: #000;
+  position: relative;
+  font-weight: 900;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.search .btn-search {
+  margin-left: 20px;
+  width:120px;
+  height: 40px;
+  color:#000;
+  border: 2px solid #D3D3D3;
+  font-size: 15px;
+  font-weight: 550;
+  border-radius: 8px;
+  transition:0.3s;
+  left:50%;
+  top:50%;
+  margin-top: 5px;
+}
+
+.search .btn-search:focus {
+  outline:0;
+}
+.search .btn-search:hover{
+  border: none;
+  background-color: #D3D3D3;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(44, 44, 44, 0.6);
+}
+
+
+
+
+
+
+

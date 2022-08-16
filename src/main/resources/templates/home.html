@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gong Gi Bap</title>
+  <link rel="icon" href="./images/rice.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  
+  
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    
+    <div class="inner">
+      <a href="/main" class="logo">
+        <span>공기밥</span>
+      </a>
+
+      <div class="sub-menu">
+        <ul class="menu">
+          <li>
+            <a href="/main">밥집 찾기</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">공기밥이란</a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">문의하기</a>
+          </li>
+        </ul>
+       
+      </div>
+
+    </div>
+
+
+  </header>
+  <div class="content">
+
+    <div id="map" style="width:1400px;height:500px; margin: 20px auto"></div>
+      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=26966ba6b4868e85a7fc9760936d8e28" th:inline="javascript"></script>
+        <script>
+          // 마커 배열
+          var markers = [];
+
+          var container = document.getElementById('map');
+          var options = {
+            center: new kakao.maps.LatLng(33.450701, 126.570667),
+            level: 3
+          };
+
+          // 지도 생성
+          var map = new kakao.maps.Map(container, options);
+
+          // 마커가 표시 될 위치
+          var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+
+          var marker = new kakao.maps.Marker({
+            position: markerPosition
+          });
+
+          marker.setMap(map);
+
+          // 지도 위에 마커 제거는
+          // marker.setMap(null);
+
+        </script>
+    </div>
+
+  </div>
+
+  <div class="search">
+    <div class="address">위치&nbsp;&nbsp;</div>
+    <div class="specify_address">
+      <select name="main_city" id="main_city" class="pl" onchange="loadSubCity();"></select>
+      <select name="sub_city" id="sub_city" class="pl"></select>
+    </div>
+    <button class="btn-search" onclick="searchCity()">검색</button>
+  </div>
+
+
+
+  <thead>
+  <tr>아이디</tr>
+  </thead>
+  <div id="resultPosition">
+    <tbody>
+      <tr th:each="position : ${list2}">
+        <td th:text="${position.id}"></td>
+      </tr>
+    </tbody>
+  </div>
+
+
+  <script src="./js/main.js"></script>
+
+</body>
+</html>

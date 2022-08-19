@@ -60,7 +60,8 @@ function loadSubCity() {
   document.getElementById("sub_city").innerHTML = h.join("");
 }
 
-// Ajax를 통해서 주소 select 값을 controller로 전달
+// Ajax를 통해서 주소 select 값을 controller로 전달 (안씀)
+/*
 function searchCity() {
 
 
@@ -86,9 +87,13 @@ function searchCity() {
     }
   }).done(function (result) {
     console.log(result);
-    $("#resultPosition").replaceWith(result);
+
+   $("#resultPosition").replaceWith(result);
+
   })
 }
+*/
+
 
 
 

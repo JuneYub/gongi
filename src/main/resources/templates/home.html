@@ -49,28 +49,48 @@
   <div class="content">
 
     <div id="map" style="width:1400px;height:500px; margin: 20px auto"></div>
+      <script th:inline="javascript">
+        // 컨트롤러에서 받아온 위도, 경도
+
+        /*<![CDATA[*/
+        var latitudeArr = [];
+        var longitudeArr = [];
+        /*[# th:each="list : ${list2}"]*/
+        var tmp = /*[[${list.latitude}]]*/"test1";
+        var tmp2 = /*[[${list.longitude}]]*/"test1";
+        latitudeArr.push(tmp);
+        longitudeArr.push(tmp2);
+        /*[/]*/
+        /*]]>*/
+
+      </script>
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=26966ba6b4868e85a7fc9760936d8e28" th:inline="javascript"></script>
         <script>
+
           // 마커 배열
           var markers = [];
 
           var container = document.getElementById('map');
           var options = {
-            center: new kakao.maps.LatLng(33.450701, 126.570667),
+            center: new kakao.maps.LatLng(37.5124532868516, 126.93946438269933),
             level: 3
           };
 
           // 지도 생성
           var map = new kakao.maps.Map(container, options);
 
+
           // 마커가 표시 될 위치
-          var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+          for(var i = 0; i<longitudeArr.length; i++) {
+            var markerPosition = new kakao.maps.LatLng(latitudeArr[i], longitudeArr[i]);
+            var marker = new kakao.maps.Marker({
+              position: markerPosition
+            });
+            marker.setMap(map);
+          }
 
-          var marker = new kakao.maps.Marker({
-            position: markerPosition
-          });
 
-          marker.setMap(map);
+
 
           // 지도 위에 마커 제거는
           // marker.setMap(null);
@@ -80,27 +100,35 @@
 
   </div>
 
-  <div class="search">
-    <div class="address">위치&nbsp;&nbsp;</div>
-    <div class="specify_address">
-      <select name="main_city" id="main_city" class="pl" onchange="loadSubCity();"></select>
-      <select name="sub_city" id="sub_city" class="pl"></select>
+  <form action="/dataSend" method="get">
+    <div class="search">
+      <div class="address">위치&nbsp;&nbsp;</div>
+      <div class="specify_address">
+        <select name="main_city" id="main_city" class="pl" onchange="loadSubCity();"></select>
+        <select name="sub_city" id="sub_city" class="pl"></select>
+      </div>
+      <button class="btn-search">검색</button>
     </div>
-    <button class="btn-search" onclick="searchCity()">검색</button>
-  </div>
+  </form>
 
 
 
   <thead>
-  <tr>아이디</tr>
+  <tr>지역</tr>
+  <tr>음식점명</tr>
+  <tr>평균 사용 금액(사용금액 / 인원)</tr>
   </thead>
+
   <div id="resultPosition">
     <tbody>
       <tr th:each="position : ${list2}">
-        <td th:text="${position.id}"></td>
+        <td th:text="${position.maincity}"></td>
+        <td th:text="${position.place}"></td>
+        <td th:text="${position.price}"></td>
       </tr>
     </tbody>
   </div>
+
 
 
   <script src="./js/main.js"></script>

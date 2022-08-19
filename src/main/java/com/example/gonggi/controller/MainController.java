@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+
 @ComponentScan(basePackages = {"com.example.gonggi"})
 @SpringBootApplication
 @Controller
@@ -39,18 +41,20 @@ public class MainController {
      */
 
     //@ResponseBody << 이거 쓰면 리턴값이 고대로 감
-    @RequestMapping(value = "/dataSend", method = RequestMethod.POST)
-    public ModelAndView mainReq(@RequestParam("mainCity") String mainCity,@RequestParam("subCity") String subCity,
-                          Model model) throws Exception {
+    @RequestMapping(value = "/dataSend", method = RequestMethod.GET)
+    public ModelAndView mainReq(String mainCity, String subCity, Model model) throws Exception {
 
         System.out.println("메인도시 " + mainCity + " 서브도시 " + subCity);
         System.out.println("리턴 값 " + positionService.allPosition());
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home :: #resultPosition");
-        modelAndView.addObject("list2", positionService.allPosition());
-        //model.addAttribute("list2", positionService.allPosition());
-        // return "home :: #resultPosition";
+
+        modelAndView.setViewName("home"); // 출력하고 싶은 view
+
+        modelAndView.addObject("list2", positionService.allPosition()); // 출력하고 싶은 데이터
+        System.out.println("타입 값 " + positionService.allPosition());
+
+        // return "home :: #resultPosition"; (ajax 비동기 방식일 때 활용)
         return modelAndView;
     }
 

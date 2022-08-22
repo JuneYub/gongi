@@ -6,31 +6,31 @@ let main_city = [
 ]
 
 let seoul_city = [
-  {v:"노원구", t:"노원구"},
-  {v:"중랑구", t:"중랑구"},
-  {v:"광진구", t:"광진구"},
-  {v:"도봉구", t:"도봉구"},
-  {v:"강북구", t:"강북구"},
-  {v:"동대문구", t:"동대문구"},
-  {v:"성동구", t:"성동구"},
-  {v:"성북구", t:"성북구"},
-  {v:"종로구", t:"종로구"},
-  {v:"중구", t:"중구"},
-  {v:"용산구", t:"용산구"},
-  {v:"은평구", t:"은평구"},
-  {v:"서대문구", t:"서대문구"},
-  {v:"마포구", t:"마포구"},
-  {v:"강서구", t:"강서구"},
-  {v:"양천구", t:"양천구"},
-  {v:"구로구", t:"구로구"},
-  {v:"영등포구", t:"영등포구"},
-  {v:"금천구", t:"금천구"},
-  {v:"동작구", t:"동작구"},
-  {v:"관악구", t:"관악구"},
-  {v:"서초구", t:"서초구"},
-  {v:"강남구", t:"강남구"},
-  {v:"송파구", t:"송파구"},
-  {v:"강동구", t:"강동구"}
+  {v:"노원구", t:"노원구", latitude: 0 , logitude: 0},
+  {v:"중랑구", t:"중랑구", latitude: 0 , logitude: 0},
+  {v:"광진구", t:"광진구", latitude: 0 , logitude: 0},
+  {v:"도봉구", t:"도봉구", latitude: 0 , logitude: 0},
+  {v:"강북구", t:"강북구", latitude: 0 , logitude: 0},
+  {v:"동대문구", t:"동대문구", latitude: 0 , logitude: 0},
+  {v:"성동구", t:"성동구", latitude: 0 , logitude: 0},
+  {v:"성북구", t:"성북구", latitude: 0 , logitude: 0},
+  {v:"종로구", t:"종로구", latitude: 0 , logitude: 0},
+  {v:"중구", t:"중구", latitude: 0 , logitude: 0},
+  {v:"용산구", t:"용산구", latitude: 0 , logitude: 0},
+  {v:"은평구", t:"은평구", latitude: 0 , logitude: 0},
+  {v:"서대문구", t:"서대문구", latitude: 0 , logitude: 0},
+  {v:"마포구", t:"마포구", latitude: 0 , logitude: 0},
+  {v:"강서구", t:"강서구", latitude: 0 , logitude: 0},
+  {v:"양천구", t:"양천구", latitude: 0 , logitude: 0},
+  {v:"구로구", t:"구로구", latitude: 0 , logitude: 0},
+  {v:"영등포구", t:"영등포구", latitude: 0 , logitude: 0},
+  {v:"금천구", t:"금천구", latitude: 0 , logitude: 0},
+  {v:"동작구", t:"동작구", latitude: 37.5124532868516 , logitude: 126.93946438269933},
+  {v:"관악구", t:"관악구", latitude: 0 , logitude: 0},
+  {v:"서초구", t:"서초구", latitude: 0 , logitude: 0},
+  {v:"강남구", t:"강남구", latitude: 0 , logitude: 0},
+  {v:"송파구", t:"송파구", latitude: 0 , logitude: 0},
+  {v:"강동구", t:"강동구", latitude: 0 , logitude: 0}
 ]
 
 function loadMainCity() {
@@ -55,10 +55,12 @@ function loadSubCity() {
       seoul_city.forEach(item => {
         h.push('<option value=' + item.v + '>' + item.t + '</option>');
       });
-    } 
+
   }
   document.getElementById("sub_city").innerHTML = h.join("");
 }
+}
+
 
 // Ajax를 통해서 주소 select 값을 controller로 전달 (안씀)
 /*

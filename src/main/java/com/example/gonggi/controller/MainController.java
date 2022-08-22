@@ -25,6 +25,8 @@ public class MainController {
     private PositionService positionService;
 
 
+
+
     @GetMapping("/main")
     public String mainPage(Model model) {
         model.addAttribute("hello", "서버에서 보내준 값입니다.");
@@ -41,18 +43,20 @@ public class MainController {
      */
 
     //@ResponseBody << 이거 쓰면 리턴값이 고대로 감
-    @RequestMapping(value = "/dataSend", method = RequestMethod.GET)
-    public ModelAndView mainReq(String mainCity, String subCity, Model model) throws Exception {
+    @RequestMapping(path = "/dataSend", method = RequestMethod.GET)
+    public ModelAndView mainReq(String main_city, String sub_city, Model model) throws Exception {
 
-        System.out.println("메인도시 " + mainCity + " 서브도시 " + subCity);
-        System.out.println("리턴 값 " + positionService.allPosition());
+
+        System.out.println("메인도시 " + main_city + " 서브도시 " + sub_city);
+        System.out.println("리턴 값 " + positionService.readPosition(main_city, sub_city));
+
 
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("home"); // 출력하고 싶은 view
 
-        modelAndView.addObject("list2", positionService.allPosition()); // 출력하고 싶은 데이터
-        System.out.println("타입 값 " + positionService.allPosition());
+        modelAndView.addObject("list2", positionService.readPosition(main_city, sub_city)); // 출력하고 싶은 데이터
+        System.out.println("리턴 값 " + positionService.readPosition(main_city, sub_city));
 
         // return "home :: #resultPosition"; (ajax 비동기 방식일 때 활용)
         return modelAndView;

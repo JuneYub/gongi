@@ -13,9 +13,9 @@ import java.util.Optional;
 public interface PositionRepository extends JpaRepository<Position, Integer> {
     //ist<Position> findAllBySubcity(String sub);
 
-    /*
-    @Query("SELECT a FROM Position a where a.maincity = :main and a.subcity = :sub")
+
+    @Query("SELECT a FROM Position join SubcityPosition a where a.maincity = :main and a.subcity = :sub")
     List<Position> findByMaincityAndSubcity(@Param("main") String main, @Param("sub") String sub);
-    */
+
 
 }

@@ -21,7 +21,7 @@
 <body>
   <!-- HEADER -->
   <header>
-    
+
     <div class="inner">
       <a href="/main" class="logo">
         <span>공기밥</span>
@@ -39,7 +39,7 @@
             <a href="javascript:void(0)">문의하기</a>
           </li>
         </ul>
-       
+
       </div>
 
     </div>
@@ -51,27 +51,46 @@
     <div id="map" style="width:1400px;height:500px; margin: 20px auto"></div>
       <script th:inline="javascript">
         // 각 구청의 위도 경도
-        var subcityLatitude;
-        var subcityLogitude;
+        var positionLat = 37.542997493188025;
+        var positionLng = 126.72440108626213;
 
-        // 컨트롤러에서 받아온 위도, 경도
-
+        // 컨트롤러에서 받아온 각 음식점의 위도 경도 정보를 통해 마커를 표시
         /*<![CDATA[*/
         var latitudeArr = [];
         var longitudeArr = [];
         var placeArr = [];
-        var subCity;
+
+        var placeCount = new Map();
+
         /*[# th:each="list : ${list2}"]*/
         var tmp = /*[[${list.latitude}]]*/"test1";
         var tmp2 = /*[[${list.longitude}]]*/"test2";
         var tmp3 = /*[[${list.place}]]*/"test3";
-        var tmp4 = /*[[${list.subcity}]]*/"test4";
         latitudeArr.push(tmp);
         longitudeArr.push(tmp2);
         placeArr.push(tmp3);
+        /*[/]*/
+
+
+        // 지역을 선택하면 선택된 지역 구청으로 이동할 수 있게 도와줌
+        /*[# th:each="subCityInfo : ${list1}"]*/
+        var tmp4 = /*[[${subCityInfo.subcity}]]*/"test4";
+        positionLat = /*[[${subCityInfo.sub_lat}]]*/"test5";
+        positionLng = /*[[${subCityInfo.sub_lng}]]*/"test6";
         subCity = tmp4;
         /*[/]*/
+
+        // 음식점 방문 횟수를 받아오는 정보
+        /*[# th:each="placeCount : ${list3}"]*/
+        placeCount.set(
+                /*[[${placeCount.place}]]*/"test7", /*[[${placeCount.cnt}]]*/"test8"
+        );
+
+        /*[/]*/
+
         /*]]>*/
+        console.log(placeCount)
+
 
       </script>
       <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=26966ba6b4868e85a7fc9760936d8e28" th:inline="javascript"></script>
@@ -82,7 +101,7 @@
 
           var container = document.getElementById('map');
           var options = {
-            center: new kakao.maps.LatLng(37.5124532868516, 126.93946438269933),
+            center: new kakao.maps.LatLng(positionLat, positionLng),
             level: 3
           };
 
@@ -100,7 +119,7 @@
 
             var infowindow = new kakao.maps.InfoWindow({
               content : '<div style="padding: 10px; width: 100%; height: 100%;">'+'<a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query='+subCity+'+'+placeArr[i]+'' +
-                      '"style="text-align: center" target="_blank">'+'가게명 : '+placeArr[i]+'</a>'+'</div>'  // 식당명
+                      '"style="text-align: center" target="_blank">'+'가게명 : '+placeArr[i]+'<br>'+'방문 횟수 : '+placeCount.get(placeArr[i])+'</a>'+'</div>'  // 식당명
             })
 
 
@@ -113,6 +132,7 @@
             marker.setMap(map);
 
           }
+
 
           // mouseover 된 마커가 없으면 인포윈도우를 띄우고 다른 마커를 mouseover 하면 기존 윈도우가 없어지고 새로 인포윈도우가 나타납니다.
           function makeOverListener(map, marker, infowindow) {
@@ -152,21 +172,25 @@
 
 
 
+
+
+  <div class ="select-option">
+    <button class="btn-selectDes" ># 방문횟수 내림차순으로 정렬</button>
+  </div>
+
   <thead>
   <tr>지역</tr>
   <tr>음식점명</tr>
   <tr>평균 사용 금액(사용금액 / 인원)</tr>
   </thead>
-
-  <div id="resultPosition">
-    <tbody>
-      <tr th:each="position : ${list2}">
-        <td th:text="${position.maincity}"></td>
-        <td th:text="${position.place}"></td>
-        <td th:text="${position.price}"></td>
-      </tr>
-    </tbody>
-  </div>
+   <div id="resultPosition">
+      <tbody>
+        <tr th:each="position : ${list3}">
+          <td th:text="${position.place}"> </td>
+          <td th:text="${position.cnt}"> </td>
+        </tr>
+      </tbody>
+    </div>
 
 
 

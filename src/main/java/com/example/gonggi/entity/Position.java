@@ -27,7 +27,12 @@ public class Position {
 
     private Double longitude;
 
-    private String maincity;
 
-    private String subcity;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "adm_code", referencedColumnName = "admcode", insertable = false, updatable = false)
+    private SubcityPosition subcityPosition;
+
+
 }
+
+

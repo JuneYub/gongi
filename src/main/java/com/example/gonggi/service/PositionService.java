@@ -28,18 +28,16 @@ public class PositionService {
 
     }
 
-
     public List<VisitDto> visitCount(){
         return positionRepository.viewVisitCount();
     }
-
-
-
 
     public List<SubcityPosition> readSubcityInfo(String main, String sub) {
         return subcityPositionRepository.findSubcityInfo(main, sub);
     }
 
-
+    public List<VisitDto> rangeVisitCnt() {
+        return positionRepository.rangeVisitCount();
+    }
 
 }

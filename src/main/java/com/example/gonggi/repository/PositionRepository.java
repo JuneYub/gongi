@@ -33,5 +33,8 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
     @Query("SELECT new com.example.gonggi.dto.VisitDto(p.place, count (p.place)) FROM Position p GROUP BY p.place")
     public List<VisitDto> viewVisitCount();
 
+    @Query("SELECT new com.example.gonggi.dto.VisitDto(p.place, count (p.place) ) FROM Position p GROUP BY p.place ORDER BY count (p.place) DESC")
+    public List<VisitDto> rangeVisitCount();
+
 
 }

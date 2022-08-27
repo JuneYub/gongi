@@ -62,39 +62,35 @@ function loadSubCity() {
 }
 
 
+
+
 // Ajax를 통해서 주소 select 값을 controller로 전달 (안씀)
-/*
-function searchCity() {
 
-
-  var city_main = $('#main_city').val();
-  var city_sub = $('#sub_city').val();
-
+function listChange() {
 
   $.ajax({
-    url: "/dataSend",
+    url: "/viewCntDes",
     type: 'post',
     async: true, // true(비동기), false(동기)
     data: {
-      mainCity:city_main.toString(),
-      subCity:city_sub.toString()
     },
     //서버로 전달할 데이터(key:value 형태의 객체 or String)
-    success: function(data){
-      console.log(city_main);
-      console.log(city_sub);
+    success: function(){
     },
     error: function(){
       alert("데이터 통신중 에러발생");
     }
   }).done(function (result) {
-    console.log(result);
+    $("#mainTable").replaceWith(result);
 
-   $("#resultPosition").replaceWith(result);
+    document.getElementsByName('placeSubcity').forEach(function (ele, idx){
+      ele.innerText = subCity;
+      console.log(subCity);
+    })
 
   })
 }
-*/
+
 
 
 

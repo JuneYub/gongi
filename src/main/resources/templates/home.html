@@ -89,7 +89,15 @@
         /*[/]*/
 
         /*]]>*/
-        console.log(placeCount)
+
+
+        window.onload = function() {
+          document.getElementsByName('placeSubcity').forEach(function (ele, idx){
+            ele.innerText = subCity;
+          })
+        }
+
+
 
 
       </script>
@@ -175,23 +183,36 @@
 
 
   <div class ="select-option">
-    <button class="btn-selectDes" ># 방문횟수 내림차순으로 정렬</button>
+
+    <a id="selectDes" class="selectDes" onclick="listChange()" >
+      <span class="material-symbols-outlined" id="descendingIcon">
+      sort
+      </span>
+      방문횟수순</a>
   </div>
 
-  <thead>
-  <tr>지역</tr>
-  <tr>음식점명</tr>
-  <tr>평균 사용 금액(사용금액 / 인원)</tr>
-  </thead>
-   <div id="resultPosition">
-      <tbody>
-        <tr th:each="position : ${list3}">
-          <td th:text="${position.place}"> </td>
-          <td th:text="${position.cnt}"> </td>
-        </tr>
-      </tbody>
-    </div>
+  <div class="selectList">
+    <table id="mainTable">
+    <thead>
+    <tr>
+      <th>지역</th>
+      <th>음식점명</th>
+      <th>방문 횟수</th>
+      <th>위치 보기</th>
+    </tr>
 
+    </thead>
+     <div id="resultPosition">
+        <tbody>
+          <tr th:each="position : ${list3}">
+            <td id="placeSubcity" name = "placeSubcity"></td>
+            <td th:text="${position.place}"> </td>
+            <td id="visitCount" th:text="${position.cnt}"> </td>
+          </tr>
+        </tbody>
+      </div>
+    </table>
+  </div>
 
 
   <script src="./js/main.js"></script>

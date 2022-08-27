@@ -7,8 +7,8 @@ a:visited{
   color: black; text-decoration: none;
 }
 
-a:hover:not(.logo){
-  color: blue;
+a:hover:not(.selectDes){
+  color : dodgerblue;
 }
 
 
@@ -74,8 +74,11 @@ header .sub-menu ul.menu li a:hover {
   color: #2E75B6;
 }
 
+
+/* 지역 조회 부분 */
+
 body .search {
-  /*background-color: red;*/
+
   position: relative;
   height: 50px;
   text-align: center;
@@ -143,29 +146,58 @@ body .search {
   box-shadow: 0 2px 4px rgba(44, 44, 44, 0.6);
 }
 
+/* 메인 테이블 및 테이블 정렬 옵션 부분 */
+
 .select-option {
-  width: 600px;
+  width: 1000px;
+  margin: auto;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #808080;
+
+}
+
+
+.select-option #descendingIcon {
+  position: relative;
+  top: 6px;
+}
+
+.select-option .selectDes{
+  cursor: pointer;
+}
+
+.selectDes:hover>#descendingIcon{
+  color: dodgerblue;
+
+}
+
+.selectList {
+  width: 1000px;
   margin: auto;
   margin-top: 20px;
 }
 
-.select-option .btn-selectDes {
-
-  background-color: dodgerblue;
-  color: white;
-  border-radius: 20px;
-  width: 220px;
-  height: 40px;
-  border: none;
-  margin: 10px 10px;
-
-}
-
-.select-option .btn-selectDes:hover {
-  font-weight: 800;
+table {
+  width: 1000px;
+  border-top: 1px solid #c4c4c4;
+  border-collapse: collapse;
 }
 
 
+td, th {
+  padding: 12px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+#placeSubcity {
+  font-size: 11px;
+  text-align: center;
+}
+
+#visitCount {
+  text-align: center;
+}
 
 
 

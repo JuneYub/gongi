@@ -50,6 +50,13 @@ public class MainController {
         return modelAndView;
     }
 
+    @PostMapping("/viewCntDes")
+    public String viewCntDescending(Model model) {
+        model.addAttribute("list3", positionService.rangeVisitCnt());
+
+        return "/home :: #mainTable";
+    }
+
 
 
 

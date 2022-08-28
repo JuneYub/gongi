@@ -85,11 +85,43 @@ function listChange() {
 
     document.getElementsByName('placeSubcity').forEach(function (ele, idx){
       ele.innerText = subCity;
-      console.log(subCity);
     })
-
   })
 }
+
+function callLink(item) {
+  var place = $(item).text();
+  var url = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query="+subCity+"+"+place;
+  window.open(url);
+}
+
+$(document).ready(function(){
+  $('table tr').mouseover(function(){
+    $(this).css("backgroundColor","buttonface");
+  });
+  $('table tr').mouseout(function(){
+    $(this).css("backgroundColor","#fff");
+  });
+});
+
+$(function () {
+  $(window).scroll(function () {
+    if($(this).scrollTop() > 300) {
+      $('#moveTop').fadeIn();
+    } else {
+      $('#moveTop').fadeOut();
+    }
+  })
+});
+
+$("#moveTop").click(function () {
+  $('html, body').animate({
+    scrollTop : 0
+  }, 400);
+  return false;
+})
+
+
 
 
 

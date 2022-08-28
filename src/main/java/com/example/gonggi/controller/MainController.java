@@ -26,6 +26,10 @@ public class MainController {
         return "home.html";
     }
 
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "info.html";
+    }
 
     //@ResponseBody << 이거 쓰면 리턴값이 고대로 감
     @RequestMapping(path = "/dataSend", method = RequestMethod.GET)

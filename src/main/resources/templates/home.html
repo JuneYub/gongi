@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,6 +19,7 @@
   
 </head>
 <body>
+
   <!-- HEADER -->
   <header>
 
@@ -33,7 +34,7 @@
             <a href="/main">밥집 찾기</a>
           </li>
           <li>
-            <a href="javascript:void(0)">공기밥이란</a>
+            <a href="/about">공기밥이란</a>
           </li>
           <li>
             <a href="javascript:void(0)">문의하기</a>
@@ -198,7 +199,6 @@
       <th>지역</th>
       <th>음식점명</th>
       <th>방문 횟수</th>
-      <th>위치 보기</th>
     </tr>
 
     </thead>
@@ -206,13 +206,23 @@
         <tbody>
           <tr th:each="position : ${list3}">
             <td id="placeSubcity" name = "placeSubcity"></td>
-            <td th:text="${position.place}"> </td>
+            <td>
+              <a id="placeName" onclick="callLink(this);" target="_blank" th:text="${position.place}"></a>
+            </td>
             <td id="visitCount" th:text="${position.cnt}"> </td>
           </tr>
         </tbody>
       </div>
     </table>
   </div>
+
+  <!--탑 버튼-->
+  <a id="moveTop" href="#">
+    <span class="material-symbols-outlined keyboard">
+    keyboard_double_arrow_up
+    </span>
+  </a>
+
 
 
   <script src="./js/main.js"></script>

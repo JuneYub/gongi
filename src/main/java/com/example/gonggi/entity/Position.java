@@ -27,6 +27,7 @@ public class Position {
 
     private Double longitude;
 
+    private int adm_code;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "adm_code", referencedColumnName = "admcode", insertable = false, updatable = false)

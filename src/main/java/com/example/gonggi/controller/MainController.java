@@ -21,8 +21,7 @@ public class MainController {
     private PositionService positionService;
 
     @GetMapping("/main")
-    public String mainPage(Model model) {
-        model.addAttribute("hello", "서버에서 보내준 값입니다.");
+    public String mainPage() {
         return "home.html";
     }
 
@@ -48,15 +47,15 @@ public class MainController {
 
         modelAndView.addObject("list1", positionService.readSubcityInfo(main_city, sub_city)); // 선택된 지역에 대한 이름과 구청 위치 데이터
 
-        modelAndView.addObject("list3", positionService.visitCount());
+        modelAndView.addObject("list3", positionService.visitCount(sub_city));
         // return "home :: #resultPosition"; (ajax 비동기 방식일 때 활용)
 
         return modelAndView;
     }
 
     @PostMapping("/viewCntDes")
-    public String viewCntDescending(Model model) {
-        model.addAttribute("list3", positionService.rangeVisitCnt());
+    public String viewCntDescending(int admcode, Model model) {
+        model.addAttribute("list3", positionService.rangeVisitCnt(admcode));
 
         return "/home :: #mainTable";
     }

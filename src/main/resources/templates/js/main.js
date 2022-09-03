@@ -73,6 +73,7 @@ function listChange() {
     type: 'post',
     async: true, // true(비동기), false(동기)
     data: {
+      "admcode" : parseInt(admcode)
     },
     //서버로 전달할 데이터(key:value 형태의 객체 or String)
     success: function(){

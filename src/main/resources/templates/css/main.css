@@ -165,10 +165,10 @@ body .search {
   margin-top: 5px;
 }
 
-.search .btn-search:focus {
+.btn-search:focus {
   outline:0;
 }
-.search .btn-search:hover{
+.btn-search:hover{
   border: none;
   background-color: #D3D3D3;
   cursor: pointer;
@@ -176,6 +176,7 @@ body .search {
 }
 
 /* 메인 테이블 및 테이블 정렬 옵션 부분 */
+/* 테이블 상단 */
 
 .select-option {
   width: 1000px;
@@ -207,6 +208,8 @@ body .search {
   margin-top: 20px;
 }
 
+/* 테이블 내용 및 테이블 css */
+
 table {
   width: 1000px;
   border-top: 1px solid #c4c4c4;
@@ -224,7 +227,7 @@ td, th {
   text-align: center;
 }
 
-#visitCount {
+#visitCount, #placeInfo{
   text-align: center;
 }
 
@@ -232,6 +235,17 @@ td, th {
   cursor: pointer;
 }
 
+.btn-info {
+  border-radius: 4px;
+  border: 2px solid #D3D3D3;
+}
+
+.btn-info:hover {
+  cursor: pointer;
+  background-color: #D3D3D3;
+}
+
+  /* 누르면 페이지 상단으로 이동하는 css */
 #moveTop {
   position: fixed;
   right: 4%;

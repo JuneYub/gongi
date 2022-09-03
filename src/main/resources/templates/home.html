@@ -75,6 +75,7 @@
 
         // 지역을 선택하면 선택된 지역 구청으로 이동할 수 있게 도와줌
         /*[# th:each="subCityInfo : ${list1}"]*/
+        var admcode = /*[[${subCityInfo.admcode}]]*/"test4";
         var tmp4 = /*[[${subCityInfo.subcity}]]*/"test4";
         positionLat = /*[[${subCityInfo.sub_lat}]]*/"test5";
         positionLng = /*[[${subCityInfo.sub_lng}]]*/"test6";
@@ -199,6 +200,7 @@
       <th>지역</th>
       <th>음식점명</th>
       <th>방문 횟수</th>
+      <th>상세 정보</th>
     </tr>
 
     </thead>
@@ -210,6 +212,9 @@
               <a id="placeName" onclick="callLink(this);" target="_blank" th:text="${position.place}"></a>
             </td>
             <td id="visitCount" th:text="${position.cnt}"> </td>
+            <td id="placeInfo">
+              <button class="btn-info" onclick="location.href = '#'" th:value="${position.place}" formtarget="_blank">보기</button>
+            </td>
           </tr>
         </tbody>
       </div>

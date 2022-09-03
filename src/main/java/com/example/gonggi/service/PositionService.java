@@ -22,22 +22,23 @@ public class PositionService {
     @Autowired
     private SubcityPositionRepository subcityPositionRepository;
 
-
+    // list2
     public List<Position> readPosition(String main, String sub) {
         return positionRepository.findByMaincityAndSubcity(main, sub);
 
     }
 
-    public List<VisitDto> visitCount(){
-        return positionRepository.viewVisitCount();
+    public List<VisitDto> visitCount(String sub){
+        return positionRepository.viewVisitCount(sub);
     }
 
+    // list1
     public List<SubcityPosition> readSubcityInfo(String main, String sub) {
         return subcityPositionRepository.findSubcityInfo(main, sub);
     }
 
-    public List<VisitDto> rangeVisitCnt() {
-        return positionRepository.rangeVisitCount();
+    public List<VisitDto> rangeVisitCnt(int admcode) {
+        return positionRepository.rangeVisitCount(admcode);
     }
 
 }

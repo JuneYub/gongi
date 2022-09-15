@@ -122,6 +122,25 @@ $("#moveTop").click(function () {
   return false;
 })
 
+/*
+function new_window(placeName) {
+  window.open(
+      "placeInfo.html",
+      placeName,
+      "width=400, height=300, top=50, left=50"
+  );
+}
+*/
+
+
+function openDetail() {
+  $('input[name=detailSubcity]').attr('value',subCity);
+  var wintype = "toolbar=no, width=400, height=300, top=150, left=150, directories=no, menubar=no, scrollbars=yes";
+  window.open("", "childeView", wintype);
+
+}
+
+
 
 
 

@@ -41,4 +41,8 @@ public class PositionService {
         return positionRepository.rangeVisitCount(admcode);
     }
 
+    public List<Position> readPlaceDetail(String detailSubcity, String detailPlace) {
+        return positionRepository.findDetailBySubcityAndPlace(detailSubcity, detailPlace);
+    }
+
 }

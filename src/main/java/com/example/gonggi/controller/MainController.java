@@ -61,6 +61,16 @@ public class MainController {
     }
 
 
+    @RequestMapping(path = "/viewDetail", method = RequestMethod.GET)
+    public String viewDetails(String detailSubcity, String detailPlace, Model model) {
+
+        model.addAttribute("placeDetail", positionService.readPlaceDetail(detailSubcity, detailPlace));
+        return "placeInfo.html";
+    }
+
+
+
+
 
 
 }

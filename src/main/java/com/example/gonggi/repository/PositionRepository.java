@@ -28,5 +28,7 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
     @Query("SELECT new com.example.gonggi.dto.VisitDto(p.place, count (p.place) ) FROM Position p WHERE p.adm_code = :admcode GROUP BY p.place ORDER BY count (p.place) DESC")
     public List<VisitDto> rangeVisitCount(@Param("admcode") int admcode);
 
+    @Query("SELECT p FROM Position p join fetch p.subcityPosition s WHERE s.subcity = :detailSubcity AND p.place =:detailPlace ORDER BY p.date ASC")
+    List<Position> findDetailBySubcityAndPlace(@Param("detailSubcity") String detailSbucity, @Param("detailPlace") String detailPlace);
 
 }

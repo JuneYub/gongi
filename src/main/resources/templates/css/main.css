@@ -210,11 +210,13 @@ body .search {
 
 /* 테이블 내용 및 테이블 css */
 
-table {
+#mainTable {
   width: 1000px;
   border-top: 1px solid #c4c4c4;
   border-collapse: collapse;
 }
+
+
 
 
 td, th {
@@ -266,3 +268,22 @@ td, th {
   background-color: grey;
 }
 
+/*placeInfo css*/
+
+#subTable {
+
+  border-collapse: collapse;
+  border-top: 3px solid #808080;
+
+}
+
+#subTable td {
+  text-align: center;
+}
+
+#subTableHeader {
+  height: 100px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

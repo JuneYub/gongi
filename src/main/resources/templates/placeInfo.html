@@ -1,0 +1,38 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="./images/rice.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="subTableHeader">
+    <table id="subTable">
+        <thead>
+        <tr>
+            <th>음식점명</th>
+            <th>방문 날짜</th>
+            <th>방문 인원</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="placeDetail : ${placeDetail}">
+            <td th:text="${placeDetail.place}"></td>
+            <td th:text="${placeDetail.date}"></td>
+            <td th:text="${placeDetail.member}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="./js/main.js"></script>
+</body>
+</html>

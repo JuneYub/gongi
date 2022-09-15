@@ -213,7 +213,14 @@
             </td>
             <td id="visitCount" th:text="${position.cnt}"> </td>
             <td id="placeInfo">
-              <button class="btn-info" onclick="location.href = '#'" th:value="${position.place}" formtarget="_blank">보기</button>
+              <!--
+              <button class="btn-info" onclick="new_window(this.value);" th:value="${position.place}">보기</button>
+              -->
+              <form id="viewDetail" method="get" action="viewDetail" target="childeView">
+                <input type="hidden" name="detailSubcity" value="">
+                <input type="hidden" name="detailPlace" th:value="${position.place}" >
+                <button class="btn-info" type="submit" onclick="openDetail()">보기</button>
+              </form>
             </td>
           </tr>
         </tbody>

@@ -57,7 +57,7 @@ public class MainController {
     public String viewCntDescending(int admcode, Model model) {
         model.addAttribute("list3", positionService.rangeVisitCnt(admcode));
 
-        return "/home :: #mainTable";
+        return "home :: #mainTable";
     }
 
 

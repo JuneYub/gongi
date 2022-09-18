@@ -78,8 +78,9 @@ function listChange() {
     //서버로 전달할 데이터(key:value 형태의 객체 or String)
     success: function(){
     },
-    error: function(){
-      alert("데이터 통신중 에러발생");
+    error: function(request,status,error){
+      alert("데이터 통신 주 에러 발생 code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
     }
   }).done(function (result) {
     $("#mainTable").replaceWith(result);

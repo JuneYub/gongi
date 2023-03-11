@@ -25,7 +25,7 @@
 
     <div class="inner">
       <a href="/main" class="logo">
-        <span>공기밥</span>
+        <img class="img_logo" src="images/logo.png" alt="공기밥">
       </a>
 
       <div class="sub-menu">
@@ -171,6 +171,7 @@
 
   <form action="/dataSend" method="get">
     <div class="search">
+      <img class="img_marker" src="images/marker.png" alt="지도마커">
       <div class="address">위치&nbsp;&nbsp;</div>
       <div class="specify_address">
         <select name="main_city" id="main_city" class="pl" onchange="loadSubCity();"></select>
@@ -183,50 +184,96 @@
 
 
 
-
+<div id="bottom_back_ground">
+  <hr>
   <div class ="select-option">
 
     <a id="selectDes" class="selectDes" onclick="listChange()" >
       <span class="material-symbols-outlined" id="descendingIcon">
       sort
       </span>
-      방문횟수순</a>
+      방문 횟수 순</a>
   </div>
 
-  <div class="selectList">
-    <table id="mainTable">
-    <thead>
-    <tr>
-      <th>지역</th>
-      <th>음식점명</th>
-      <th>방문 횟수</th>
-      <th>상세 정보</th>
-    </tr>
+<!--  <div class="selectList">-->
+<!--    <table id="mainTable">-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--          <th>지역</th>-->
+<!--          <th>음식점명</th>-->
+<!--          <th>방문 횟수</th>-->
+<!--          <th>상세 정보</th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+<!--     <div id="resultPosition">-->
+<!--       <tbody>-->
+<!--         <tr th:each="position : ${list3}">-->
+<!--           <td id="placeSubcity" name = "placeSubcity">테스트</td>-->
+<!--           <td>-->
+<!--             <a id="placeName" onclick="callLink(this);" target="_blank" th:text="${position.place}"></a> 테스트-->
+<!--           </td>-->
+<!--           <td id="visitCount" th:text="${position.cnt}">테스트</td>-->
+<!--           <td id="placeInfo">-->
+<!--             &lt;!&ndash;-->
+<!--              <button class="btn-info" onclick="new_window(this.value);" th:value="${position.place}">보기</button>-->
+<!--              &ndash;&gt;-->
+<!--             <form id="viewDetail" method="get" action="viewDetail" target="childeView">-->
+<!--               <input type="hidden" name="detailSubcity" value="">-->
+<!--               <input type="hidden" name="detailPlace" th:value="${position.place}" >-->
+<!--               <button class="btn-info" type="submit" onclick="openDetail()">보기</button>-->
+<!--             </form>-->
+<!--           </td>-->
+<!--         </tr>-->
 
-    </thead>
-     <div id="resultPosition">
-        <tbody>
-          <tr th:each="position : ${list3}">
-            <td id="placeSubcity" name = "placeSubcity"></td>
-            <td>
-              <a id="placeName" onclick="callLink(this);" target="_blank" th:text="${position.place}"></a>
-            </td>
-            <td id="visitCount" th:text="${position.cnt}"> </td>
-            <td id="placeInfo">
-              <!--
-              <button class="btn-info" onclick="new_window(this.value);" th:value="${position.place}">보기</button>
-              -->
-              <form id="viewDetail" method="get" action="viewDetail" target="childeView">
-                <input type="hidden" name="detailSubcity" value="">
-                <input type="hidden" name="detailPlace" th:value="${position.place}" >
-                <button class="btn-info" type="submit" onclick="openDetail()">보기</button>
-              </form>
-            </td>
-          </tr>
-        </tbody>
+<!--       </tbody>-->
+<!--      </div>-->
+<!--    </table>-->
+
+    <br>
+  <!-- ------------------------------------------------------------------------------------  -->
+
+  <div id="placeListTable" >
+    <div class="divTable minimalistBlack">
+        <div class="divTableHeading">
+          <div class="divTableRow">
+          <div class="divTableHead">지역</div>
+          <div class="divTableHead">음식점명</div>
+          <div class="divTableHead">방문횟수</div>
+          <div class="divTableHead">상세정보</div>
+          </div>
+        </div>
+    </div>
+
+    <div id="tableBody">
+      <div id="roundBody" th:each="position : ${list3}">
+
+        <div id="placeSubcity" name = "placeSubcity"></div>
+
+        <div id="col2">
+          <a id="placeName" onclick="callLink(this);" target="_blank" th:text="${position.place}"></a>
+        </div>
+
+        <div id="visitCount" th:text="${position.cnt}"></div>
+
+        <div id="placeInfo">
+          <form id="viewDetail" method="get" action="viewDetail" target="childeView">
+            <input type="hidden" name="detailSubcity" value="">
+            <input type="hidden" name="detailPlace" th:value="${position.place}" >
+            <button class="btn-info" type="submit" onclick="openDetail()">방문날짜</button>
+          </form>
+        </div>
+
       </div>
-    </table>
+    </div>
   </div>
+
+<!-- table end------------------------------------------------------------------------------- -->
+
+
+</div>
+<!-- bottom_back_ground end -->
+
+
 
   <!--탑 버튼-->
   <a id="moveTop" href="#">

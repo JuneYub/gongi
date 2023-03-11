@@ -53,11 +53,12 @@ public class MainController {
         return modelAndView;
     }
 
+
     @PostMapping("/viewCntDes")
     public String viewCntDescending(int admcode, Model model) {
         model.addAttribute("list3", positionService.rangeVisitCnt(admcode));
 
-        return "home :: #mainTable";
+        return "home :: #tableBody";
     }
 
 

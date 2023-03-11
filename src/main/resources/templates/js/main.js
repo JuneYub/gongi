@@ -83,11 +83,13 @@ function listChange() {
 
     }
   }).done(function (result) {
-    $("#mainTable").replaceWith(result);
+    console.log(result);
+    $("#tableBody").replaceWith(result);
 
     document.getElementsByName('placeSubcity').forEach(function (ele, idx){
       ele.innerText = subCity;
     })
+
   })
 }
 

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 
 a:link {
   color: black; text-decoration: none;
@@ -12,13 +20,16 @@ a:hover:not(.selectDes, .logo){
 }
 
 .img_box {
-
+  width: 100%;
+  height: 300px;
+  text-align: center;
 }
 
-.img_info {
-  position: relative;
-  left: 17%;
 
+
+.img_info {
+  
+  position: relative;
   width: 1040px;
   height: 300px;
   object-fit: cover;
@@ -26,20 +37,19 @@ a:hover:not(.selectDes, .logo){
 }
 
 #infoArea {
-  position: absolute;
-  width: 800px;
+  
+  margin: 50px auto;
+  width: 1000px;
   height: 300px;
   background-color: white;
-  left: 43%;
-  margin-top: 30px;
-  margin-left: -400px;
-  text-align: left;
+  
+  
 
 }
 
 body {
 
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Pretendard-Regular', 'Nanum Gothic', sans-serif;
 
   /*font-family: 'Noto Sans KR', sans-serif;*/
   
@@ -47,6 +57,7 @@ body {
 
 .contents {
   line-height: 200%;
+  width: 100%;
 }
 
 header {
@@ -61,9 +72,9 @@ header .inner {
   position: relative;
 }
 
-header .inner .logo {
+header .inner .logo .img_logo {
 
-  position: absolute;
+  /* position: absolute;
   height: 50px;
   width: 130px;
   font-size: 45px;
@@ -71,13 +82,28 @@ header .inner .logo {
   top: 30px;
   bottom: 0;
   left: 50px;
-  margin: auto 0;
+  margin: auto 0; */
+
+  position: absolute;
+  display: block;
+  object-fit: contain;
+  width: 150px;
+  height: 60px;
+  bottom: 10%;
+  left: 3%;
+
+
 
 }
 
 
+
 header .sub-menu {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Pretendard-Regular', 'Noto Sans KR', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
 }
 
 header .sub-menu ul.menu {
@@ -100,11 +126,18 @@ header .sub-menu ul.menu li a {
 }
 
 header .sub-menu ul.menu li a:hover {
-  color: #2E75B6;
+  color: #359CEF;
 }
 
 
 /* 지역 조회 부분 */
+#bottom_back_ground {
+  background-color: #F4F7F9;
+}
+
+hr {
+  border: 1px solid #DBDDE0;
+}
 
 body .search {
 
@@ -113,6 +146,7 @@ body .search {
   text-align: center;
   display: flex;
   justify-content: center;
+  
 }
 
 .search .specify_address {
@@ -126,7 +160,7 @@ body .search {
   box-sizing: border-box;
   border-radius: 10px;
   padding: 12px 13px;
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Pretendard-Regular', 'Nanum Gothic', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -142,23 +176,32 @@ body .search {
   border-radius: 10px;
 }
 
+.search .img_marker {
+  margin-top: 8px;
+  height: 35px;
+}
+
 .search .address {
   color: #000;
   position: relative;
-  font-weight: 900;
-  font-size: 20px;
+  width: 90px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 18px;
   margin-top: 15px;
 }
 
 .search .btn-search {
   margin-left: 20px;
-  width:120px;
+  width: 160px;
   height: 40px;
-  color:#000;
-  border: 2px solid #D3D3D3;
+  color: #359CEF;
+  background-color: #fff;
+  border: 3px solid #359CEF;
   font-size: 15px;
   font-weight: 550;
-  border-radius: 8px;
+  border-radius: 44px;
   transition:0.3s;
   left:50%;
   top:50%;
@@ -169,8 +212,7 @@ body .search {
   outline:0;
 }
 .btn-search:hover{
-  border: none;
-  background-color: #D3D3D3;
+  border: 3px solid #359CEF;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(44, 44, 44, 0.6);
 }
@@ -195,6 +237,13 @@ body .search {
 
 .select-option .selectDes{
   cursor: pointer;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 560;
+  font-size: 15px;
+  line-height: 18px;
+  color: #8D8D8D;
+
 }
 
 .selectDes:hover>#descendingIcon{
@@ -210,21 +259,42 @@ body .search {
 
 /* 테이블 내용 및 테이블 css */
 
-#mainTable {
+#mainTable, #resultTable {
   width: 1000px;
   border-top: 1px solid #c4c4c4;
-  border-collapse: collapse;
+  border: solid 1px black;
+  border-collapse: separate;
 }
-
-
-
 
 td, th {
   padding: 12px;
+  border: solid 1px black;
   border-bottom: 1px solid #c4c4c4;
 }
 
-#placeSubcity {
+th {
+  background-color: #F4F7F9;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 560;
+  font-size: 15px;
+  color: #8D8D8D;
+}
+
+#resultTable td {
+  background-color: #fff;
+}
+
+#resultTable #placeSubcity {
+  width: 17%;
+}
+
+/* 작업중~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 수치만 조정해주면 된다~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#resultTable  { 
+  width: 100%;
+}
+
+#placeSubcity, #resultTable  {
   font-size: 11px;
   text-align: center;
 }
@@ -238,14 +308,117 @@ td, th {
 }
 
 .btn-info {
-  border-radius: 4px;
-  border: 2px solid #D3D3D3;
+  margin-left: 14px;
+  width: 80px;
+  border-radius: 44px;
+  border: 2px solid #DBDDE0;
+
+  color: #8D8D8D;;
+  background-color: #fff;
+
+  transition:0.3s;
 }
 
 .btn-info:hover {
+  border: 2px solid #DBDDE0;
   cursor: pointer;
-  background-color: #D3D3D3;
+  box-shadow: 0 2px 4px rgba(44, 44, 44, 0.6);
 }
+
+/* ----------------------------------------------------------------------- */
+
+div.placeListTable {
+  width: 100%;
+}
+
+div.minimalistBlack {
+  font-family: 'Pretendard';
+  margin: 0 auto;
+  width: 1000px;
+  text-align: center;
+  border-collapse: collapse;
+  
+}
+.divTable.minimalistBlack .divTableCell, .divTable.minimalistBlack .divTableHead {
+  /* border: 1.5px solid black; */
+  padding: 15px 4px;
+}
+
+.divTable.minimalistBlack .divTableHeading {
+  
+  border-top: 1.5px solid #DBDDE0;
+  border-bottom: 1.5px solid #DBDDE0;
+  
+}
+.divTable.minimalistBlack .divTableHeading .divTableHead {
+  font-style: normal;
+  font-weight: 560;
+  font-size: 15px;
+  color: #8D8D8D;
+
+}
+
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+
+
+#roundBody {
+  margin: 0 auto;
+
+  background: #FFFFFF;
+  box-shadow: 0px 4px 10px 0px #0000000F;
+  border-radius: 18px;
+  height: 50px;
+  width: 1000px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-family: Pretendard;
+
+  margin-top: 20px;
+  border-radius: 15px;
+
+  font-family: Pretendard;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+div#roundBody > div#placeSubcity {
+  width: 15.9%;
+  /* background-color: burlywood; */
+
+}
+
+div#roundBody > div#col2 {
+  width: 28.03%;
+  /* background-color: orchid; */
+
+  font-weight: 600;
+
+}
+
+div#roundBody > div#visitCount {
+  width: 28.03%;
+  /* background-color: gray; */
+
+}
+
+div#roundBody > div#placeInfo {
+  width: 27.03%;
+  /* background-color: ivory; */
+}
+
+
+/* ------------------------------------------------------------------------ */
+
 
   /* 누르면 페이지 상단으로 이동하는 css */
 #moveTop {
@@ -268,7 +441,7 @@ td, th {
   background-color: grey;
 }
 
-/*placeInfo css*/
+/*placeInfo css 상세보기 테이블 설정*/
 
 #subTable {
 
